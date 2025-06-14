@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "fred/laravel-error-lab",
+    "description": "This is my package laravel-error-lab",
     "keywords": [
-        ":vendor_name",
+        "hddev",
         "laravel",
-        ":package_slug"
+        "laravel-error-lab"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/fred/laravel-error-lab",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "frederic moras",
+            "email": "info@hddev.be",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Hddev\\LaravelErrorLab\\": "src/",
+            "Hddev\\LaravelErrorLab\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "Hddev\\LaravelErrorLab\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Hddev\\LaravelErrorLab\\LaravelErrorLabServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelErrorLab": "Hddev\\LaravelErrorLab\\Facades\\LaravelErrorLab"
             }
         }
     },

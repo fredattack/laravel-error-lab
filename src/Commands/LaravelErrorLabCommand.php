@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Hddev\LaravelErrorLab\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelErrorLabCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-error-lab';
 
     public $description = 'My command';
 
