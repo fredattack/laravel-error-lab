@@ -1,12 +1,11 @@
 <?php
 
-
 namespace Hddev\LaravelErrorLab\Services;
 
-use Illuminate\Contracts\View\Factory as ViewFactory;
-use Hddev\LaravelErrorLab\Data\ErrorDTO;
 use Hddev\LaravelErrorLab\Data\CodeContextDTO;
+use Hddev\LaravelErrorLab\Data\ErrorDTO;
 use Hddev\LaravelErrorLab\Data\TestCoverageDTO;
+use Illuminate\Contracts\View\Factory as ViewFactory;
 
 class PrismePromptBuilder
 {
@@ -18,7 +17,7 @@ class PrismePromptBuilder
     }
 
     public function build(
-       ErrorDTO $error,
+        ErrorDTO $error,
         CodeContextDTO $code,
         TestCoverageDTO $coverage
     ): string {

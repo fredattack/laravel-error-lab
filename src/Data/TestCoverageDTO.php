@@ -11,4 +11,3 @@ class TestCoverageDTO
         public array $coveringTests = [] // Ex: ['Feature/Service/MonServiceTest::test_foo']
     ) {}
 }
-

@@ -8,9 +8,10 @@ use Hddev\LaravelErrorLab\Tests\TestCase;
 
 class ErrorProviderInterfaceTest extends TestCase
 {
-    public function testCanImplementErrorProviderInterface()
+    public function test_can_implement_error_provider_interface()
     {
-        $mock = new class implements ErrorProviderInterface {
+        $mock = new class implements ErrorProviderInterface
+        {
             public function fetchErrors(): array
             {
                 return [

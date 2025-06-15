@@ -8,9 +8,9 @@ use Hddev\LaravelErrorLab\Tests\TestCase;
 
 class FakeLLMClientTest extends TestCase
 {
-    public function testReturnsFakeResponseWhenSendingPrompt()
+    public function test_returns_fake_response_when_sending_prompt()
     {
-        $client = new FakeLLMClient();
+        $client = new FakeLLMClient;
         $response = $client->sendPrompt('Test prompt');
 
         $this->assertInstanceOf(PrismeResponseDTO::class, $response);
@@ -21,9 +21,9 @@ class FakeLLMClientTest extends TestCase
         $this->assertNull($response->error);
     }
 
-    public function testTracksCallsToSendPrompt()
+    public function test_tracks_calls_to_send_prompt()
     {
-        $client = new FakeLLMClient();
+        $client = new FakeLLMClient;
         $client->sendPrompt('First prompt');
         $client->sendPrompt('Second prompt');
 
@@ -32,9 +32,9 @@ class FakeLLMClientTest extends TestCase
         $this->assertEquals('Second prompt', $client->calls[1]);
     }
 
-    public function testReturnsErrorResponseWhenForceErrorIsSet()
+    public function test_returns_error_response_when_force_error_is_set()
     {
-        $client = new FakeLLMClient();
+        $client = new FakeLLMClient;
         $client->forceError = 'API unavailable';
         $response = $client->sendPrompt('Test prompt');
 
@@ -42,13 +42,13 @@ class FakeLLMClientTest extends TestCase
         $this->assertNull($response->fix);
     }
 
-    public function testReturnsCustomResponseWhenForceResponseIsSet()
+    public function test_returns_custom_response_when_force_response_is_set()
     {
-        $client = new FakeLLMClient();
+        $client = new FakeLLMClient;
         $client->forceResponse = [
             'fix' => 'custom fix',
             'explanation' => 'custom explanation',
-            'phpunit' => 'custom test'
+            'phpunit' => 'custom test',
         ];
         $response = $client->sendPrompt('Test prompt');
 
@@ -57,9 +57,9 @@ class FakeLLMClientTest extends TestCase
         $this->assertEquals('custom test', $response->phpunit);
     }
 
-    public function testHandlesBatchPrompts()
+    public function test_handles_batch_prompts()
     {
-        $client = new FakeLLMClient();
+        $client = new FakeLLMClient;
         $responses = $client->sendBatch(['Prompt 1', 'Prompt 2']);
 
         $this->assertCount(2, $responses);

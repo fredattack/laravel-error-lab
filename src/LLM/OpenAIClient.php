@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Http;
 class OpenAIClient implements LLMClientInterface
 {
     protected string $apiKey;
+
     protected string $apiUrl;
 
     public function __construct(string $apiKey, string $apiUrl = 'https://api.openai.com/v1/chat/completions')
@@ -31,7 +32,7 @@ class OpenAIClient implements LLMClientInterface
                     'temperature' => 0.2,
                 ]);
 
-            if (!$response->successful()) {
+            if (! $response->successful()) {
                 return new PrismeResponseDTO(error: 'API Error: '.$response->status().' '.$response->body());
             }
 

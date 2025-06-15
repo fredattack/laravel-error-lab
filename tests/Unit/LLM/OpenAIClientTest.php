@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Http;
 
 class OpenAIClientTest extends TestCase
 {
-    public function testSendsPromptToOpenAIAPIAndReturnsExplanation()
+    public function test_sends_prompt_to_open_aiapi_and_returns_explanation()
     {
         // Mock the HTTP client
         Http::fake([
@@ -18,11 +18,11 @@ class OpenAIClientTest extends TestCase
                 'choices' => [
                     [
                         'message' => [
-                            'content' => 'This is a test response'
-                        ]
-                    ]
-                ]
-            ], 200)
+                            'content' => 'This is a test response',
+                        ],
+                    ],
+                ],
+            ], 200),
         ]);
 
         // Create client and send prompt
@@ -43,13 +43,13 @@ class OpenAIClientTest extends TestCase
         $this->assertNull($response->error);
     }
 
-    public function testHandlesAPIErrorsCorrectly()
+    public function test_handles_api_errors_correctly()
     {
         // Mock the HTTP client to return an error
         Http::fake([
             'https://api.openai.com/v1/chat/completions' => Http::response([
-                'error' => 'Invalid API key'
-            ], 401)
+                'error' => 'Invalid API key',
+            ], 401),
         ]);
 
         // Create client and send prompt
@@ -61,7 +61,7 @@ class OpenAIClientTest extends TestCase
         $this->assertStringContainsString('API Error: 401', $response->error);
     }
 
-    public function testHandlesExceptionsGracefully()
+    public function test_handles_exceptions_gracefully()
     {
         // Mock the HTTP client to throw an exception
         Http::fake(function () {
@@ -76,7 +76,7 @@ class OpenAIClientTest extends TestCase
         $this->assertEquals('Connection error', $response->error);
     }
 
-    public function testHandlesBatchPromptsCorrectly()
+    public function test_handles_batch_prompts_correctly()
     {
         // Mock the HTTP client
         Http::fake([
@@ -84,11 +84,11 @@ class OpenAIClientTest extends TestCase
                 'choices' => [
                     [
                         'message' => [
-                            'content' => 'Response'
-                        ]
-                    ]
-                ]
-            ], 200)
+                            'content' => 'Response',
+                        ],
+                    ],
+                ],
+            ], 200),
         ]);
 
         // Create client and send batch prompts

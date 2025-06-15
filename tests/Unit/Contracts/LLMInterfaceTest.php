@@ -8,9 +8,10 @@ use Hddev\LaravelErrorLab\Tests\TestCase;
 
 class LLMInterfaceTest extends TestCase
 {
-    public function testCanImplementLLMInterface()
+    public function test_can_implement_llm_interface()
     {
-        $mock = new class implements LLMInterface {
+        $mock = new class implements LLMInterface
+        {
             public function suggestFix(ErrorDTO $errorData, ?string $testCode = null): string
             {
                 return '// suggested fix';

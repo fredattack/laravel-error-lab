@@ -1,4 +1,5 @@
 <?php
+
 namespace Hddev\LaravelErrorLab\Data;
 
 class CodeContextDTO

@@ -8,9 +8,10 @@ use Hddev\LaravelErrorLab\Tests\TestCase;
 
 class TestGeneratorInterfaceTest extends TestCase
 {
-    public function testCanImplementTestGeneratorInterface()
+    public function test_can_implement_test_generator_interface()
     {
-        $mock = new class implements TestGeneratorInterface {
+        $mock = new class implements TestGeneratorInterface
+        {
             public function generateTest(ErrorDTO $errorData): string
             {
                 return '// test code';
