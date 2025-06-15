@@ -1,8 +1,9 @@
 <?php
+
 namespace Hddev\LaravelErrorLab\Commands;
 
-use Illuminate\Console\Command;
 use Hddev\LaravelErrorLab\Providers\SentryErrorProvider;
+use Illuminate\Console\Command;
 
 class FetchErrorsCommand extends Command
 {
@@ -26,12 +27,13 @@ class FetchErrorsCommand extends Command
                 $this->line("Error: {$error['title']} ({$error['id']})");
             }
 
-            $this->info(count($errors) . ' errors fetched.');
+            $this->info(count($errors).' errors fetched.');
             // À terme : persister en base, etc.
 
             return 0;
         } catch (\Exception $e) {
-            $this->line('Error: ' . $e->getMessage());
+            $this->line('Error: '.$e->getMessage());
+
             return 1;
         }
     }
