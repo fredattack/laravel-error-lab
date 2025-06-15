@@ -2,9 +2,9 @@
 
 namespace Hddev\LaravelErrorLab\Contracts;
 
-use Hddev\LaravelErrorLab\Data\ErrorData;
+use Hddev\LaravelErrorLab\Data\ErrorDTO;
 
 interface LLMInterface
 {
-    public function suggestFix(ErrorData $errorData, ?string $testCode = null): string;
+    public function suggestFix(ErrorDTO $errorData, ?string $testCode = null): string;
 }

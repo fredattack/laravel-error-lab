@@ -1,25 +1,42 @@
 <?php
 
+namespace Hddev\LaravelErrorLab\Tests\Unit\Contracts;
 
 use Hddev\LaravelErrorLab\Contracts\LLMInterface;
-use Hddev\LaravelErrorLab\Data\ErrorData;
+use Hddev\LaravelErrorLab\Data\ErrorDTO;
+use Hddev\LaravelErrorLab\Tests\TestCase;
 
-it('can implement LLMInterface', function () {
-    $mock = new class implements LLMInterface {
-        public function suggestFix(ErrorData $errorData, ?string $testCode = null): string
-        {
-            return '// suggested fix';
-        }
-    };
+class LLMInterfaceTest extends TestCase
+{
+    public function testCanImplementLLMInterface()
+    {
+        $mock = new class implements LLMInterface {
+            public function suggestFix(ErrorDTO $errorData, ?string $testCode = null): string
+            {
+                return '// suggested fix';
+            }
+        };
 
-    $result = $mock->suggestFix(
-        new ErrorData(
-            message: 'Some error',
-            exceptionClass: \Exception::class,
-            file: 'file.php',
-            line: 10
-        )
-    );
+        $result = $mock->suggestFix(
+            new ErrorDTO(
+                exceptionClass: \Exception::class,
+                message: 'Some error',
+                line: 10,
+                occurredAt: '2023-01-01 00:00:00',
+                environment: 'testing',
+                stackTrace: 'Stack trace here',
+                url: '/test',
+                method: 'GET',
+                requestPayload: null,
+                requestHeaders: null,
+                userInfo: null,
+                file: 'file.php',
+                class: 'App\\Example',
+                methodName: 'test'
+            )
+        );
 
-    expect($result)->toBeString()->toContain('//');
-});
+        $this->assertIsString($result);
+        $this->assertStringContainsString('//', $result);
+    }
+}

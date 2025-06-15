@@ -2,10 +2,10 @@
 
 namespace Hddev\LaravelErrorLab\Contracts;
 
-use Hddev\LaravelErrorLab\Data\ErrorData;
+use Hddev\LaravelErrorLab\Data\ErrorDTO;
 
 interface ErrorProviderInterface
 {
-    /** @return ErrorData[] */
+    /** @return ErrorDTO[] */
     public function fetchErrors(): array;
 }
