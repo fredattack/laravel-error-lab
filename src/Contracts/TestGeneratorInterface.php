@@ -1,4 +1,5 @@
 <?php
+
 namespace Hddev\LaravelErrorLab\Contracts;
 
 use Hddev\LaravelErrorLab\Data\ErrorData;

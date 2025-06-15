@@ -1,4 +1,5 @@
 <?php
+
 namespace Hddev\LaravelErrorLab\Providers;
 
 use Hddev\LaravelErrorLab\Contracts\ErrorProviderInterface;
@@ -9,21 +10,21 @@ class SentryErrorProvider implements ErrorProviderInterface
     {
         // Get values directly from env with fallbacks from config
         $token = env('SENTRY_TOKEN', config('services.sentry.token'));
-        $org   = env('SENTRY_ORGANIZATION_SLUG', config('services.sentry.organization'));
-        $proj  = env('SENTRY_PROJECT', config('services.sentry.project'));
+        $org = env('SENTRY_ORGANIZATION_SLUG', config('services.sentry.organization'));
+        $proj = env('SENTRY_PROJECT', config('services.sentry.project'));
 
         ray($token)->blue();
         ray($org)->blue();
         ray($proj)->blue();
 
-         ray( )->pause();
-        $client = new \GuzzleHttp\Client();
+        ray()->pause();
+        $client = new \GuzzleHttp\Client;
         $response = $client->get(
             "https://sentry.io/api/0/projects/{$org}/{$proj}/issues/",
             [
                 'headers' => [
                     'Authorization' => "Bearer {$token}",
-                    'Accept'        => 'application/json',
+                    'Accept' => 'application/json',
                 ],
             ]
         );
@@ -43,5 +44,4 @@ class SentryErrorProvider implements ErrorProviderInterface
             ];
         })->toArray();
     }
-
 }

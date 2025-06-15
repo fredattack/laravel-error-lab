@@ -8,7 +8,6 @@ use Mockery;
 
 class FetchErrorsCommandTests extends TestCase
 {
-
     protected function tearDown(): void
     {
         // Important: Ferme Mockery après chaque test
@@ -93,7 +92,7 @@ class FetchErrorsCommandTests extends TestCase
         // Pour l’instant, seul sentry existe, mais on simule l’argument
         $provider = Mockery::mock(SentryErrorProvider::class);
         $provider->shouldReceive('fetchErrors')->andReturn([
-            ['id' => 'abc', 'title' => 'Test error', 'culprit' => '', 'firstSeen' => '', 'lastSeen' => '', 'count' => 1]
+            ['id' => 'abc', 'title' => 'Test error', 'culprit' => '', 'firstSeen' => '', 'lastSeen' => '', 'count' => 1],
         ]);
 
         $this->app->instance(SentryErrorProvider::class, $provider);

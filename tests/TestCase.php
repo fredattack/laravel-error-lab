@@ -2,9 +2,9 @@
 
 namespace Hddev\LaravelErrorLab\Tests;
 
+use Hddev\LaravelErrorLab\LaravelErrorLabServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Hddev\LaravelErrorLab\LaravelErrorLabServiceProvider;
 
 class TestCase extends Orchestra
 {
