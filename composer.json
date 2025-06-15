@@ -1,12 +1,12 @@
 {
-    "name": "fred/laravel-error-lab",
+    "name": "hddev/laravel-error-lab",
     "description": "This is my package laravel-error-lab",
     "keywords": [
         "hddev",
         "laravel",
         "laravel-error-lab"
     ],
-    "homepage": "https://github.com/fred/laravel-error-lab",
+    "homepage": "https://github.com/fredattack/laravel-error-lab",
     "license": "MIT",
     "authors": [
         {
@@ -15,6 +15,7 @@
             "role": "Developer"
         }
     ],
+    "version": "dev-main",
     "require": {
         "php": "^8.4",
         "spatie/laravel-package-tools": "^1.16",
